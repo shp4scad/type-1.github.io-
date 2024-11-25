@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            padding: 2rem;
+            background: white;
+        }
+
+        .tag-filter {
+            margin-bottom: 2rem;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 0.4rem 0.8rem;
+            margin: 0.25rem;
+            border: 1px solid #ddd;
+            border-radius: 2px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            font-weight: 400;
+        }
+
+        .tag:hover {
+            background: #f0f0f0;
+        }
+
+        .tag.active {
+            background: #000;
+            color: white;
+            border-color: #000;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .card {
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+        }
+
+        .card:hover {
+            opacity: 0.8;
+        }
+
+        .card img {
+            width: 100%;
+            aspect-ratio: 400/250;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 0.75rem 0;
+        }
+
+        .card-content h2 {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+
+        .card-tags {
+            font-size: 0.8rem;
+            color: #666;
+            font-weight: 400;
+        }
+
+        @media (max-width: 1200px) {
+            .grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            body {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="tag-filter">
+        <span class="tag active">All</span>
+        <span class="tag">Typography</span>
+        <span class="tag">Color</span>
+        <span class="tag">Layout</span>
+        <span class="tag">Resources</span>
+    </div>
+
+    <div class="grid">
+        <!-- Example cards - replace with your content -->
+        <div class="card">
+            <img src="/api/placeholder/400/250" alt="Resource 1">
+            <div class="card-content">
+                <h2>Typography Studies</h2>
+                <div class="card-tags">Typography, Design</div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <img src="/api/placeholder/400/250" alt="Resource 2">
+            <div class="card-content">
+                <h2>Color Theory</h2>
+                <div class="card-tags">Color, Resources</div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <img src="/api/placeholder/400/250" alt="Resource 3">
+            <div class="card-content">
+                <h2>Grid Systems</h2>
+                <div class="card-tags">Layout, Design</div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <img src="/api/placeholder/400/250" alt="Resource 4">
+            <div class="card-content">
+                <h2>Visual Research</h2>
+                <div class="card-tags">Resources, Research</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simple tag filtering
+        const tags = document.querySelectorAll('.tag');
+        tags.forEach(tag => {
+            tag.addEventListener('click', () => {
+                tags.forEach(t => t.classList.remove('active'));
+                tag.classList.add('active');
+                // Add your filtering logic here
+            });
+        });
+    </script>
+</body>
+</html>
